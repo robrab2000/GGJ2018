@@ -19,7 +19,7 @@ public float throttle;
 			var inputDevice = InputManager.ActiveDevice;
             //print(inputDevice.RightTrigger.Value);
 
-        float offset = rend.material.mainTextureOffset.y + Time.deltaTime * Utils.ofMap(GameManager.Instance.FlowRate, -1f, 1f, 0.001f, 0.5f);
+        float offset = rend.material.mainTextureOffset.y + Time.deltaTime * Utils.ofMap(GameManager.Instance.FlowRate, 0f, 1f, 0.05f, 0.5f);
         rend.material.mainTextureOffset = new Vector2(0, offset);
     }
 }
