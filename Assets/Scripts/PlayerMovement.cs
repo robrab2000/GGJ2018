@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour {
 	}
 
 	void BikeRotation() {
-		Quaternion rotation = Quaternion.Euler(0, 0, GameInput.Instance.horizontalAxis * -15);
+		Quaternion rotation = Quaternion.Euler(0, 0, GameInput.Instance.horizontalAxis1 * -15);
 		bikeTrans.rotation = rotation;
 	}
 }

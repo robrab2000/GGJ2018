@@ -25,7 +25,7 @@ public class GameInput : MonoBehaviour {
 	}
 #endregion
 
-public float horizontalAxis, verticalAxis;
+public float horizontalAxis1, verticalAxis1, horizontalAxis2, verticalAxis2;
 private GunSystem gunSystem;
 
 	// Use this for initialization
@@ -37,8 +37,11 @@ private GunSystem gunSystem;
 	void Update () {
 		var inputDevice = InputManager.ActiveDevice;
         GameManager.Instance.FlowRate = inputDevice.RightTrigger.Value;
-		horizontalAxis = inputDevice.LeftStick.X;
-		verticalAxis = inputDevice.LeftStick.Y;
+		horizontalAxis1 = inputDevice.LeftStick.X;
+		verticalAxis1 = inputDevice.LeftStick.Y;
+
+		horizontalAxis2 = inputDevice.RightStick.X;
+		verticalAxis2 = inputDevice.RightStick.Y;
 
 		if(inputDevice.RightBumper) {
 			gunSystem.Shoot();

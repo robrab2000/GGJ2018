@@ -5,7 +5,7 @@ using UnityEngine;
 public class GunSystem : MonoBehaviour {
 
 	public float BulletSpeed, FireRate;
-	public GameObject BulletPrefab, GunL, GunR;
+	public GameObject BulletPrefab, GunL, GunR, Reticle;
 
 	private Transform gunL, gunR;
 
@@ -21,10 +21,14 @@ public class GunSystem : MonoBehaviour {
 	}
 
 	public void Shoot() {
-		GameObject bullet1 = Instantiate(BulletPrefab, gunL.position, gunL.rotation);
-		GameObject bullet2 = Instantiate(BulletPrefab, gunR.position, gunR.rotation);
 
-		bullet1.GetComponent<Rigidbody>().AddForce(gunL.up * BulletSpeed, ForceMode.Impulse);
-		bullet2.GetComponent<Rigidbody>().AddForce(gunR.up * BulletSpeed, ForceMode.Impulse);
+		gunL.LookAt(Reticle.transform);
+		gunR.LookAt(Reticle.transform);
+
+		GameObject bullet1 = Instantiate(BulletPrefab, gunL.position, gunL.rotation * Quaternion.Euler(90,0,0));
+		GameObject bullet2 = Instantiate(BulletPrefab, gunR.position, gunR.rotation * Quaternion.Euler(90,0,0));
+
+		bullet1.GetComponent<Rigidbody>().AddForce(gunL.forward * BulletSpeed, ForceMode.Impulse);
+		bullet2.GetComponent<Rigidbody>().AddForce(gunR.forward * BulletSpeed, ForceMode.Impulse);
 	}
 }

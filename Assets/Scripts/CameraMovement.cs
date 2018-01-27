@@ -14,7 +14,7 @@ public class CameraMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		camTrans.Translate(new Vector3(GameInput.Instance.horizontalAxis, 0, 0));
+		//camTrans.Translate(new Vector3(GameInput.Instance.horizontalAxis1, 0, 0));
 		
 	}
 }

@@ -563,12 +563,6 @@ Prefab:
       propertyPath: randomSeed
       value: -1455072421
       objectReference: {fileID: 0}
-    - target: {fileID: 114631989462205458, guid: 3627d76ef9d9345d98fcb0ccdcdec459,
-        type: 2}
-      propertyPath: BulletPrefab
-      value: 
-      objectReference: {fileID: 1938445628798318, guid: 83408963a0bf54148882c531a76d7bdc,
-        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3627d76ef9d9345d98fcb0ccdcdec459, type: 2}
   m_IsPrefabParent: 0
