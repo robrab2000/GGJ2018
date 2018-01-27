@@ -36,7 +36,7 @@ private GunSystem gunSystem;
 	// Update is called once per frame
 	void Update () {
 		var inputDevice = InputManager.ActiveDevice;
-        GameManager.Instance.FlowRate = inputDevice.RightTrigger.Value;
+        GameManager.Instance.FlowThrust(inputDevice.LeftStick.X, inputDevice.RightTrigger.Value);
 		horizontalAxis1 = inputDevice.LeftStick.X;
 		verticalAxis1 = inputDevice.LeftStick.Y;
 

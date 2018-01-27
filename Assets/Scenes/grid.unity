@@ -284,7 +284,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fcf5d10eef274e478d63734e4bb2da1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FlowRate: 0
+  FlowRate: {x: 0, y: 0}
   ThePlayer: {fileID: 1110513461}
 --- !u!4 &495297071
 Transform:

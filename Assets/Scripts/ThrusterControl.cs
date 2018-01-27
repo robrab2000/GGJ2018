@@ -10,7 +10,7 @@ public class ThrusterControl : MonoBehaviour {
 	void Update()
 	{
 		foreach (ParticleSystem t in Thrusters){
-			t.Emit(frontEmitParams, (int)(50 * GameManager.Instance.FlowRate) + 5);
+			t.Emit(frontEmitParams, (int)(50 * GameManager.Instance.FlowRate.y) + 5);
 		}
 		
 	}

@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour {
 	}
 #endregion
 
-	public float FlowRate;
+	public Vector2 FlowRate;
 	public GameObject ThePlayer;
 
 	// Use this for initialization
@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour {
 		
 	}
 
-	public void FlowThrust(float newFlow) {
-		FlowRate = newFlow;
+	public void FlowThrust(float newFlowX, float newFlowY) {
+		FlowRate = new Vector2(newFlowX, newFlowY);
 	}
 }
