@@ -11,7 +11,8 @@ public class GameManager : MonoBehaviour {
 		get { return gameManagerInstance; }
 	}
 
-	void Awake ()
+
+    void Awake ()
 	{
 		if (gameManagerInstance != null && gameManagerInstance != this) {
 			Destroy (this.gameObject);
@@ -23,7 +24,7 @@ public class GameManager : MonoBehaviour {
 	}
 #endregion
 
-public float FlowRate;
+	public float FlowRate;
 
 	// Use this for initialization
 	void Start () {
@@ -33,5 +34,9 @@ public float FlowRate;
 	// Update is called once per frame
 	void Update () {
 		
+	}
+
+	public void FlowThrust(float newFlow) {
+		FlowRate = newFlow;
 	}
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using InControl;
 
 public class GameInput : MonoBehaviour {
 
@@ -11,6 +12,7 @@ public class GameInput : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		var inputDevice = InputManager.ActiveDevice;
+        GameManager.Instance.FlowRate = inputDevice.RightTrigger.Value;
 	}
 }

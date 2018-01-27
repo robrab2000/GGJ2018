@@ -12,15 +12,14 @@ public float throttle;
     public Renderer rend;
     void Start() {
         rend = GetComponent<Renderer>();
-        throttle = Input.GetAxis ("Throttle");
     }
     void Update() {
 
 			// Use last device which provided input.
 			var inputDevice = InputManager.ActiveDevice;
-            print(inputDevice.RightTrigger.Value);
+            //print(inputDevice.RightTrigger.Value);
 
-        float offset = rend.material.mainTextureOffset.y + Time.deltaTime * Utils.ofMap(inputDevice.RightTrigger.Value, -1f, 1f, 0.001f, 0.5f);
+        float offset = rend.material.mainTextureOffset.y + Time.deltaTime * Utils.ofMap(GameManager.Instance.FlowRate, -1f, 1f, 0.001f, 0.5f);
         rend.material.mainTextureOffset = new Vector2(0, offset);
     }
 }
