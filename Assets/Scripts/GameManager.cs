@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour {
 #endregion
 
 	public float FlowRate;
+	public GameObject ThePlayer;
 
 	// Use this for initialization
 	void Start () {

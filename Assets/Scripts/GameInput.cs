@@ -26,10 +26,11 @@ public class GameInput : MonoBehaviour {
 #endregion
 
 public float horizontalAxis, verticalAxis;
+private GunSystem gunSystem;
 
 	// Use this for initialization
 	void Start () {
-		
+		gunSystem = GameManager.Instance.ThePlayer.GetComponent<GunSystem>();
 	}
 	
 	// Update is called once per frame
@@ -38,5 +39,9 @@ public float horizontalAxis, verticalAxis;
         GameManager.Instance.FlowRate = inputDevice.RightTrigger.Value;
 		horizontalAxis = inputDevice.LeftStick.X;
 		verticalAxis = inputDevice.LeftStick.Y;
+
+		if(inputDevice.RightBumper) {
+			gunSystem.Shoot();
+		}
 	}
 }
