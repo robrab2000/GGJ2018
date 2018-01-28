@@ -29,6 +29,7 @@ public float horizontalAxis1, verticalAxis1, horizontalAxis2, verticalAxis2;
 private GunSystem gunSystem;
 
 public bool InvertYAxis = false;
+public bool Thrusting;
 
 	// Use this for initialization
 	void Start () {
@@ -37,25 +38,34 @@ public bool InvertYAxis = false;
 	
 	// Update is called once per frame
 	void Update () {
-		var inputDevice = InputManager.ActiveDevice;
-        GameManager.Instance.FlowThrust(inputDevice.LeftStick.X, inputDevice.LeftTrigger.Value);
-		horizontalAxis1 = inputDevice.LeftStick.X;
-		verticalAxis1 = inputDevice.LeftStick.Y;
+		if (GameManager.Instance.GameStarted){
+			var inputDevice = InputManager.ActiveDevice;
+			GameManager.Instance.FlowThrust(inputDevice.LeftStick.X, inputDevice.LeftTrigger.Value);
+			horizontalAxis1 = inputDevice.LeftStick.X;
+			verticalAxis1 = inputDevice.LeftStick.Y;
 
-		horizontalAxis2 = inputDevice.RightStick.X;
-		if (InvertYAxis){
-			verticalAxis2 = inputDevice.RightStick.Y;
-		}
-		else {
-			verticalAxis2 = inputDevice.RightStick.Y * -1;
+			horizontalAxis2 = inputDevice.RightStick.X;
+			if (InvertYAxis){
+				verticalAxis2 = inputDevice.RightStick.Y;
+			}
+			else {
+				verticalAxis2 = inputDevice.RightStick.Y * -1;
+			}
+			
+
+			if(inputDevice.RightTrigger.WasPressed) {
+				gunSystem.ShootStart();
+			}
+			if(inputDevice.RightTrigger.WasReleased) {
+				gunSystem.ShootEnd();
+			}
+			if(inputDevice.LeftTrigger.WasPressed) {
+				Thrusting = true;
+			}
+			if(inputDevice.LeftTrigger.WasReleased) {
+				Thrusting = false;
+			}
 		}
 		
-
-		if(inputDevice.RightTrigger.WasPressed) {
-			gunSystem.ShootStart();
-		}
-		if(inputDevice.RightTrigger.WasReleased) {
-			gunSystem.ShootEnd();
-		}
 	}
 }

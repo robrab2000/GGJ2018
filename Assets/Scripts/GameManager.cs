@@ -27,6 +27,8 @@ public class GameManager : MonoBehaviour {
 	public Vector2 FlowRate;
 	public GameObject ThePlayer;
 
+	public bool GameStarted = false;
+
 	// Use this for initialization
 	void Start () {
 		

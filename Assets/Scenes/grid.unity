@@ -3911,6 +3911,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlowRate: {x: 0, y: 0}
   ThePlayer: {fileID: 1633731025}
+  GameStarted: 0
 --- !u!4 &495297071
 Transform:
   m_ObjectHideFlags: 0
@@ -3940,6 +3941,7 @@ MonoBehaviour:
   horizontalAxis2: 0
   verticalAxis2: 0
   InvertYAxis: 0
+  Thrusting: 0
 --- !u!114 &495297073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3951,7 +3953,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 512f11cb00ae1438c8d67f067ea6fe21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NumberOfMountains: 50
+  NumberOfMountains: 0
   MountainPrefab: {fileID: 1905017529882172, guid: f7632b534a4a74bd2a1702a5c873969f,
     type: 2}
 --- !u!1 &524728821
@@ -8304,6 +8306,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72f89e03033df4384a08c165fba545c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  StartPoint: {x: 0, y: 8.13, z: -10.6}
 --- !u!82 &1525216594
 AudioSource:
   m_ObjectHideFlags: 0
@@ -12019,7 +12022,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.51
   m_Pitch: 1
   Loop: 0
   Mute: 0

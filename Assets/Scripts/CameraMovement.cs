@@ -5,6 +5,7 @@ using UnityEngine;
 public class CameraMovement : MonoBehaviour {
 
 	Transform camTrans;
+	public Vector3 StartPoint;
 
 	// Use this for initialization
 	void Start () {
@@ -14,17 +15,23 @@ public class CameraMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		float push;
-		if(camTrans.position.y < 2f) {
-			push = Mathf.Clamp(GameInput.Instance.verticalAxis2, -1f,0f);
+
+		if (GameManager.Instance.GameStarted){
+			float push;
+			if(camTrans.position.y < 2f) {
+				push = Mathf.Clamp(GameInput.Instance.verticalAxis2, -1f,0f);
+			}
+			else if(camTrans.position.y > 20) {
+				push = Mathf.Clamp(GameInput.Instance.verticalAxis2, 0f, 1f);
+			}
+			else {
+				push = GameInput.Instance.verticalAxis2;
+			}
+			camTrans.Translate(new Vector3(0, push * -0.35f, 0));
 		}
-		else if(camTrans.position.y > 20) {
-			push = Mathf.Clamp(GameInput.Instance.verticalAxis2, 0f, 1f);
-		}
-		else {
-			push = GameInput.Instance.verticalAxis2;
-		}
-		camTrans.Translate(new Vector3(0, push * -0.35f, 0));
-		
+	}
+
+	void StartSequence() {
+
 	}
 }

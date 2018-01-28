@@ -26,10 +26,13 @@ public class God : MonoBehaviour {
 
 	IEnumerator SpawnTheFuckers() {
 		while(true){
-			Vector3 mountPos = new Vector3(Random.Range(GameManager.Instance.ThePlayer.transform.position.x -100,GameManager.Instance.ThePlayer.transform.position.x + 100), Random.Range(5f,20f), Random.Range(100, 1000));
-			GameObject newMountain = Instantiate(MountainPrefab, mountPos, transform.rotation);
-			float mountScale = 1;//Random.Range(0.5f,5f);
-			newMountain.transform.localScale = new Vector3 (mountScale, mountScale, mountScale);
+
+			if (GameManager.Instance.GameStarted){
+				Vector3 mountPos = new Vector3(Random.Range(GameManager.Instance.ThePlayer.transform.position.x -100,GameManager.Instance.ThePlayer.transform.position.x + 100), Random.Range(5f,20f), Random.Range(100, 1000));
+				GameObject newMountain = Instantiate(MountainPrefab, mountPos, transform.rotation);
+				float mountScale = 1;//Random.Range(0.5f,5f);
+				newMountain.transform.localScale = new Vector3 (mountScale, mountScale, mountScale);
+			}
 			yield return new WaitForSeconds(Random.Range(0.1f,0.5f));
 		}
 	}

@@ -18,21 +18,30 @@ public class EnemyMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
-		if (transform.position.y < 5f) {
-			moveSpeed = 0;
-			moveDirection = new Vector2(moveDirection.x, 0);
-		}
-		else if (transform.position.y > 25f) {
-			moveSpeed = 0;
-			moveDirection = new Vector2(moveDirection.x, 0);
-		}
-		else {
-			moveSpeed = DefaultSpeed;
-		}
-		transform.Translate((-GameManager.Instance.FlowRate.x * 1f) + (moveDirection.x * moveSpeed),(moveDirection.y * moveSpeed),-Utils.ofMap(GameManager.Instance.FlowRate.y, 0f, 1f, 1.5f, 1.75f));
+		if (GameManager.Instance.GameStarted){
+			if (transform.position.y < 5f) {
+				moveSpeed = 0;
+				moveDirection = new Vector2(moveDirection.x, 0);
+			}
+			else if (transform.position.y > 25f) {
+				moveSpeed = 0;
+				moveDirection = new Vector2(moveDirection.x, 0);
+			}
+			else {
+				moveSpeed = DefaultSpeed;
+			}
+			float boost;
+				if (GameInput.Instance.Thrusting) {
+					boost = 1.5f;
+				} 
+				else {
+					boost = 1f;
+				}
+			transform.Translate(((-GameManager.Instance.FlowRate.x * 1f) + (moveDirection.x * moveSpeed)) * boost,(moveDirection.y * moveSpeed),-Utils.ofMap(GameManager.Instance.FlowRate.y, 0f, 1f, 1.5f, 1.75f));
 
-		if(transform.position.z < -20f) {
-			Destroy(this.gameObject);
+			if(transform.position.z < -20f) {
+				Destroy(this.gameObject);
+			}
 		}
 	}
 
@@ -46,7 +55,7 @@ public class EnemyMovement : MonoBehaviour {
 
 	void SetMoveDirection() {
 		moveDirection = new Vector2(Random.Range(-3f,3f), Random.Range(-1f,1f));
-		print(moveDirection.y);
+//		print(moveDirection.y);
 		moveSpeed = DefaultSpeed;// Random.Range(05f, 3f);
 	}
 }
