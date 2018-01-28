@@ -974,6 +974,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 5
+  Points: 20
   hitParticles: {fileID: 198039879942225796}
   DeathThing: {fileID: 1926257608241552, guid: 6f90c9eb05ac847109bdb5efc73ad854, type: 2}
 --- !u!198 &198039879942225796

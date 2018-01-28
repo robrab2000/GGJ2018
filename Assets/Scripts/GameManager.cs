@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 
@@ -26,6 +27,8 @@ public class GameManager : MonoBehaviour {
 
 	public Vector2 FlowRate;
 	public GameObject ThePlayer;
+	public Text ScoreText;
+	public int Score = 0;
 
 	public bool GameStarted = false;
 
@@ -36,7 +39,11 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		ScoreText.text = Score.ToString();
+		if(Input.GetKeyDown(KeyCode.Escape) ){
+			print ("Quit");
+			Application.Quit();
+		}
 	}
 
 	public void FlowThrust(float newFlowX, float newFlowY) {

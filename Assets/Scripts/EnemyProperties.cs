@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class EnemyProperties : MonoBehaviour {
 
-	public float Health;
+	public float Health; 
+	public int Points;
 	public ParticleSystem hitParticles;
 	private ParticleSystem.EmitParams emitParams = new ParticleSystem.EmitParams();
 
@@ -19,6 +20,7 @@ public class EnemyProperties : MonoBehaviour {
 	void Update () {
 		if (Health < 0) {
 			Instantiate(DeathThing, transform.position, transform.rotation);
+			//GameManager.Instance.Score += Points;
 			Destroy(this.gameObject);
 		}
 	}

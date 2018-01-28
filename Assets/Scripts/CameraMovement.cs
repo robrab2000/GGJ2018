@@ -37,6 +37,13 @@ public class CameraMovement : MonoBehaviour {
 		else {
 			StartSequence();
 		}
+		CameraRotation();
+	}
+
+	void CameraRotation() {
+		Quaternion rotation = Quaternion.Euler(camTrans.rotation.x, camTrans.rotation.y, GameInput.Instance.horizontalAxis1 * -5);
+		camTrans.rotation = Quaternion.Lerp(camTrans.rotation, rotation, Time.time * smoothTime);
+		GetComponent<Camera>().fieldOfView = Mathf.Lerp(45f,60f, Time.time * GameManager.Instance.FlowRate.y * smoothTime);
 	}
 
 	void StartSequence() {
