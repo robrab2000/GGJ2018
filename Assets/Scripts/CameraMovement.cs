@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.ImageEffects;
 
 public class CameraMovement : MonoBehaviour {
 
@@ -44,6 +45,8 @@ public class CameraMovement : MonoBehaviour {
 		Quaternion rotation = Quaternion.Euler(camTrans.rotation.x, camTrans.rotation.y, GameInput.Instance.horizontalAxis1 * -5);
 		camTrans.rotation = Quaternion.Lerp(camTrans.rotation, rotation, Time.time * smoothTime);
 		GetComponent<Camera>().fieldOfView = Mathf.Lerp(50f,60f, Time.time * GameManager.Instance.FlowRate.y * smoothTime);
+		var blur = Camera.main.GetComponent<MotionBlur>();
+		blur.blurAmount = Mathf.Lerp(0.2f,0.4f, Time.time * GameManager.Instance.FlowRate.y * smoothTime);
 	}
 
 	void StartSequence() {

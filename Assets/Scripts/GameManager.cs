@@ -29,12 +29,16 @@ public class GameManager : MonoBehaviour {
 	public GameObject ThePlayer;
 	public Text ScoreText;
 	public int Score = 0;
+	CursorLockMode lockMode;
 
 	public bool GameStarted = false;
 
 	// Use this for initialization
 	void Start () {
 		Invoke("StartGame", 7f);
+		lockMode = CursorLockMode.Locked;
+		Cursor.visible = (CursorLockMode.Locked != lockMode);
+
 	}
 	
 	// Update is called once per frame
