@@ -42,5 +42,8 @@ public class GunSystem : MonoBehaviour {
 
 		bullet1.GetComponent<Rigidbody>().AddForce(gunL.forward * BulletSpeed, ForceMode.Impulse);
 		bullet2.GetComponent<Rigidbody>().AddForce(gunR.forward * BulletSpeed, ForceMode.Impulse);
+
 	}
+
+	
 }
