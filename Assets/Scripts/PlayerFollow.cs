@@ -15,8 +15,10 @@ public class PlayerFollow : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		posFollow = theCamera.position;
-		transform.position = Vector3.SmoothDamp(transform.position, posFollow, ref velocity, FollowSpeed);
-		//transform.position = theCamera.position;
+		if (GameManager.Instance.GameStarted){
+			posFollow = theCamera.position;
+			transform.position = Vector3.SmoothDamp(transform.position, posFollow, ref velocity, FollowSpeed);
+			//transform.position = theCamera.position;
+		}
 	}
 }

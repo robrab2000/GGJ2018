@@ -5,7 +5,10 @@ using UnityEngine;
 public class CameraMovement : MonoBehaviour {
 
 	Transform camTrans;
-	public Vector3 StartPoint;
+	public Transform StartPoint;
+	public float IntroCamSpeed;
+    public float smoothTime = 0.3F;
+    private Vector3 velocity = Vector3.zero;
 
 	// Use this for initialization
 	void Start () {
@@ -29,9 +32,19 @@ public class CameraMovement : MonoBehaviour {
 			}
 			camTrans.Translate(new Vector3(0, push * -0.35f, 0));
 		}
+		else {
+			StartSequence();
+		}
 	}
 
 	void StartSequence() {
 
+
+		//Transform posFollow = StartPoint.position;
+		//transform.position = Vector3.SmoothDamp(transform.position, posFollow, ref velocity, FollowSpeed);
+
+		//camTrans.position = Vector3.SmoothDamp(StartPoint.position, camTrans.position, ref velocity, smoothTime);
+		camTrans.position = Vector3.Lerp(camTrans.position, StartPoint.position, Time.deltaTime * IntroCamSpeed);
+		camTrans.rotation = Quaternion.Lerp(camTrans.rotation, StartPoint.rotation, Time.deltaTime * IntroCamSpeed);
 	}
 }
