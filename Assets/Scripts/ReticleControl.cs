@@ -14,6 +14,9 @@ public class ReticleControl : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		MoveReticle();
+		if(GameManager.Instance.GameStarted) {
+			GetComponent<Renderer>().enabled = true;
+		}
 	}
 
 	void MoveReticle() {

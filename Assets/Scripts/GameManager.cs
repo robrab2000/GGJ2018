@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+		Invoke("StartGame", 7f);
 	}
 	
 	// Update is called once per frame
@@ -41,5 +41,9 @@ public class GameManager : MonoBehaviour {
 
 	public void FlowThrust(float newFlowX, float newFlowY) {
 		FlowRate = new Vector2(newFlowX, newFlowY);
+	}
+
+	void StartGame() {
+		GameStarted = true;
 	}
 }
