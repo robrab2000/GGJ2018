@@ -17,6 +17,6 @@ public class ReticleControl : MonoBehaviour {
 	}
 
 	void MoveReticle() {
-		myTrans.localPosition = new Vector3(GameInput.Instance.horizontalAxis2 * 5, GameInput.Instance.verticalAxis2 * 5, 40f);
+		myTrans.localPosition = new Vector3(GameInput.Instance.horizontalAxis2 * 5, GameInput.Instance.verticalAxis2 * -5, 40f);
 	}
 }

@@ -6,6 +6,8 @@ public class GunSystem : MonoBehaviour {
 
 	public float BulletSpeed, FireRate;
 	public GameObject BulletPrefab, GunL, GunR, Reticle;
+	public AudioClip ShootSound;
+	AudioSource audio;
 
 	private Transform gunL, gunR;
 
@@ -13,6 +15,7 @@ public class GunSystem : MonoBehaviour {
 	void Start () {
 		gunL = GunL.transform;
 		gunR = GunR.transform;
+		audio = GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -20,7 +23,16 @@ public class GunSystem : MonoBehaviour {
 		
 	}
 
-	public void Shoot() {
+	public void ShootStart() {
+		InvokeRepeating("FireBullet", 0, FireRate);
+	}
+
+	public void ShootEnd() {
+		CancelInvoke();
+	}
+
+	void FireBullet() {
+		audio.PlayOneShot(ShootSound);
 
 		gunL.LookAt(Reticle.transform);
 		gunR.LookAt(Reticle.transform);
