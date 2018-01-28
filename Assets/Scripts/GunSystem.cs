@@ -37,8 +37,8 @@ public class GunSystem : MonoBehaviour {
 		gunL.LookAt(Reticle.transform);
 		gunR.LookAt(Reticle.transform);
 
-		GameObject bullet1 = Instantiate(BulletPrefab, gunL.position, gunL.rotation * Quaternion.Euler(90,0,0));
-		GameObject bullet2 = Instantiate(BulletPrefab, gunR.position, gunR.rotation * Quaternion.Euler(90,0,0));
+		GameObject bullet1 = Instantiate(BulletPrefab, gunL.position + new Vector3(0, Mathf.Clamp(GameInput.Instance.verticalAxis2, 0f, 1f) * -0.35f, 0), gunL.rotation * Quaternion.Euler(90,0,0));
+		GameObject bullet2 = Instantiate(BulletPrefab, gunR.position + new Vector3(0, Mathf.Clamp(GameInput.Instance.verticalAxis2, 0f, 1f) * -0.35f, 0), gunR.rotation * Quaternion.Euler(90,0,0));
 
 		bullet1.GetComponent<Rigidbody>().AddForce(gunL.forward * BulletSpeed, ForceMode.Impulse);
 		bullet2.GetComponent<Rigidbody>().AddForce(gunR.forward * BulletSpeed, ForceMode.Impulse);
